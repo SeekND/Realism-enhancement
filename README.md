@@ -5,8 +5,8 @@ Such devices like bHaptics and YawVR are made for VR almost exclusively, but wit
 The code provided was designed to be use in Star Citizen but can work for any game as it simple uses keyboard/mouse/joystick inputs.
 I've commented the code so hopefully you can change it to your liking.
 
-## See explanation video here: ##
-## https://youtu.be/j6GlcPmM9nI ##
+## See explanation video here:
+https://youtu.be/j6GlcPmM9nI
 
 
 
