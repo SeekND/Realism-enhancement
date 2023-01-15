@@ -37,7 +37,7 @@ Mouse inputs:
 
 All movement is handled by YAWVR main app under DirectInput profile.
 ![Alt text](direcinput.png?raw=true "1")
-![Alt text](direcinput2.png?raw=true "2")
+![Alt text](directinput2.PNG?raw=true "2")
 
 
 ## Python libraries required:
