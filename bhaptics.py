@@ -5,18 +5,15 @@ import time
 from time import sleep
 import pygame
 
-pygame.init()
-
-
 ######################### user changeable variables #########################
 
 # Below all buttons that are used per joystick keyboard and mouse
 
 
-# The values below, after joystick(x) represent the joystick number as it's seen by your system. 0 is the first joystick, 1 is second joystick.
-# IF you have additional joysticks installed these values might change
+# The values below represents the joystick number as it's seen by your system. 0 is the first joystick, 1 second joystick, etc
+# If you have additional joysticks installed these values might change
 joystick1 = 0
-joystick2 = 1 #if you only want to use one joystick set this value the same as the above
+joystick2 = 1 #if you only want to use one joystick set this value the same as the above. You might need to change the throttle axis below as well.
 
 j1button1 = 0 # shooting main gun
 j2button1 =  7 # boost button
@@ -38,6 +35,9 @@ key7 = 0x39 # this hexa represents the key 9
 ######################### END OF user changeable variables #########################
 
 # don't modify anything after this line unless you know what you are doing :)
+
+
+pygame.init()
 
 j1 = pygame.joystick.Joystick(joystick1)
 j1.init()
