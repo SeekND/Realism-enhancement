@@ -45,7 +45,8 @@ All movement is handled by YAWVR main app under DirectInput profile.
 - websocket-client
 - pygame
 - socket
-- Requires bHaptics vest installed and running for bhaptics to work
+
+*Requires bHaptics vest installed and running for bhaptics to work
 
 
 ## Special thanks:
