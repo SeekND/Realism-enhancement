@@ -2,7 +2,7 @@
 Contains python code to allow YAWVR motion chair and bHaptics haptic vest to work with your keyboard/mouse/joystick
 
 Such devices like bHaptics and YawVR are made for VR almost exclusively, but with a bit of tweaking and lots of code you can easily alter them to enhance flatscreen gaming experience to something amazing!
-The code provided was designed to be use in Star Citizen but can work for any game as it simple uses keyboard/mouse/joystick inputs.
+The code provided was designed to be used in Star Citizen but can work for any game as it simple uses keyboard/mouse/joystick inputs.
 I've commented the code so hopefully you can change it to your liking.
 
 ## See explanation video here:
