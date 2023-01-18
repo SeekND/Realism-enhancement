@@ -2,21 +2,12 @@ import win32api
 from bhaptics import better_haptic_player as player
 import time
 from time import sleep
-import pygame
 
 ######################### user changeable variables #########################
 
 # Below all buttons that are used per joystick keyboard and mouse
 
 
-# The values below represents the joystick number as it's seen by your system. 0 is the first joystick, 1 second joystick, etc
-# If you have additional joysticks installed these values might change
-joystick1 = 0
-joystick2 = 1 #if you only want to use one joystick set this value the same as the above. You might need to change the throttle axis below as well.
-
-j1button1 = 0 # shooting main gun
-j2button1 =  7 # boost button
-j2axis1 = 2 # throttle axis
 
 mouse1 = 0x01 # this hexa represents the left mouse button
 mouse2 = 0x02 # this hexa represents the right mouse button
@@ -38,13 +29,6 @@ pressandholdtime = 40 # time that takes for key4 to activate its function
 # don't modify anything after this line unless you know what you are doing :)
 
 
-pygame.init()
-
-j1 = pygame.joystick.Joystick(joystick1)
-j1.init()
-
-j2 = pygame.joystick.Joystick(joystick2)
-j2.init()
 
 
 
@@ -75,62 +59,7 @@ throttleintensity = 0
 
 print("Started mouse monitor")
 print("Started keyboard monitor")
-print("Started joystick monitor")
 shootingmaingun = False
-
-def shooting():
-    global durationMillis2
-    global shootingmaingun
-    if j1.get_button(j1button1):
-        player.submit_dot("frontFrame", "VestFront", [{"index": 18, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 18, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 17, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 17, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 14, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 14, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 13, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 13, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 10, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 10, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 9, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 9, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 6, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 6, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 5, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 5, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 2, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 2, "intensity": 100}], durationMillis2)
-        sleep(interval)
-        player.submit_dot("frontFrame", "VestFront", [{"index": 1, "intensity": 100}], durationMillis2)
-        player.submit_dot("backFrame", "VestBack", [{"index": 1, "intensity": 100}], durationMillis2)
-        sleep(interval)
-    else:
-        shootingmaingun = False
-
-
-def shipon():
-    global throttleintensity
-    global durationMillis2
-    player.submit_dot("frontFrame", "VestFront", [{"index": 19, "intensity": throttleintensity}], durationMillis2)
-    player.submit_dot("backFrame", "VestBack", [{"index": 18, "intensity": throttleintensity}], durationMillis2)
-    sleep(interval)
-    player.submit_dot("frontFrame", "VestFront", [{"index": 16, "intensity": throttleintensity}], durationMillis2)
-    player.submit_dot("backFrame", "VestBack", [{"index": 16, "intensity": throttleintensity}], durationMillis2)
-    sleep(interval)
-    player.submit_dot("frontFrame", "VestFront", [{"index": 15, "intensity": throttleintensity}], durationMillis2)
-    player.submit_dot("backFrame", "VestBack", [{"index": 15, "intensity": throttleintensity}], durationMillis2)
-    sleep(interval)
-    player.submit_dot("frontFrame", "VestFront", [{"index": 12, "intensity": throttleintensity}], durationMillis2)
-    player.submit_dot("backFrame", "VestBack", [{"index": 12, "intensity": throttleintensity}], durationMillis2)
-    sleep(interval)
 
 
 
@@ -146,17 +75,17 @@ while True:
 
 
 
-    events = pygame.event.get()
+    #events = pygame.event.get()
 
-    throttleintensity = int(map_range(j2.get_axis(j2axis1), 1, -1, 0, 50))
+    #throttleintensity = int(map_range(j2.get_axis(j2axis1), 1, -1, 0, 50))
     #if throttleintensity == 20:
     #    throttleintensity = 0
 
-    if throttleintensity > 0 and j2.get_button(j2button1):
-        throttleintensity = throttleintensity + 20
+    #if throttleintensity > 0 and j2.get_button(j2button1):
+    #    throttleintensity = throttleintensity + 20
 
-    if shootingmaingun == True:
-        shooting()
+    #if shootingmaingun == True:
+    #    shooting()
 
     lb = win32api.GetKeyState(mouse1)
     rb = win32api.GetKeyState(mouse2)
@@ -176,15 +105,6 @@ while True:
         ison = True
 
     if ison:
-        shipon()
-        #print(throttleintensity)
-
-        #for event in events:
-        #    if event.type == pygame.JOYBUTTONDOWN:
-        if j1.get_button(j1button1):
-            shootingmaingun = True
-
-
 
         if lb != state_left:  # Button state changed
 
